@@ -9,7 +9,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<MyWorldDbContext>(options => {
-    options.UseSqlServer();
+    options.UseSqlServer(builder.Configuration.GetConnectionString("MyWorldDbConnection"));
 });
 
 var app = builder.Build();
